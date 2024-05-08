@@ -12,8 +12,9 @@ class HabitDatabase extends ChangeNotifier {
   //setup
   static Future<void> initialize() async {
     final dir = await getApplicationDocumentsDirectory();
-    isar = await Isar.open([HabitSchema], directory: dir.path);
+    isar = await Isar.open([HabitSchema, AppSettingsSchema], directory: dir.path);
   }
+
 
   //save first date of app startup
   Future<void> saveFirstLaunchDate() async {
